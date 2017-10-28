@@ -16,6 +16,7 @@ function createRouter() {
   // Routes.
 
   // Users.
+  router.get('/user', userHttp.getUser);
   router.get('/users', userHttp.getUsers);
 
   return router;
