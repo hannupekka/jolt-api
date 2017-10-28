@@ -1,0 +1,24 @@
+{
+  "extends": "airbnb-base",
+  "plugins": ["import", "no-async-without-await"],
+  "rules": {
+    "arrow-parens": 0,
+    "no-async-without-await/no-async-without-await": 1,
+    "no-underscore-dangle": 0,
+    "comma-dangle": ["error", "always-multiline"],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true
+      }
+    ],
+    "max-len": [
+      "error",
+      {
+        "code": 100,
+        "ignoreComments": true,
+        "ignoreTemplateLiterals": true
+      }
+    ]
+  }
+}
