@@ -23,7 +23,13 @@ const getUsers = async req => {
   const response = await axios.get(FUM_API_URL, { headers: { cookie } });
   const users = _.get(response, 'data', []);
 
-  return _.map(users, pick);
+  if (!_.isArray(users)) {
+    const error = new Error('Not logged in');
+    error.status = 401;
+    throw error;
+  }
+
+  return users.filter(user => _.get(user, 'status') === 'active').map(pick);
 };
 
 module.exports = {
