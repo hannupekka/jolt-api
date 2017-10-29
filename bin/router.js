@@ -1,6 +1,7 @@
 const express = require('express');
 const RateLimit = require('express-rate-limit');
 const userHttp = require('../http/user');
+const joltHttp = require('../http/jolt');
 
 function createRouter() {
   const router = express.Router();
@@ -17,7 +18,14 @@ function createRouter() {
 
   // Users.
   router.get('/user', userHttp.getUser);
+  // router.get('/user/:id', userHttp.getUserJolts);
   router.get('/users', userHttp.getUsers);
+
+  // Jolts
+  router.post('/jolt', joltHttp.giveJolt);
+  router.get('/jolt', joltHttp.getJolts);
+  // router.get('/jolt/:id', joltHttp.getJolt); // Jolts have one-to-many relation with users.
+  // router.patch('/jolt/:id', joltHttp.editJolt);
 
   return router;
 }

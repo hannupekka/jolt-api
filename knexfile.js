@@ -1,7 +1,9 @@
+const { DB_URL } = require('./config');
+
 module.exports = {
   development: {
     client: 'pg',
-    connection: process.env.DB_URL,
+    connection: DB_URL,
     migrations: {
       tableName: 'knex_migrations',
       directory: './db/migrations',
@@ -9,7 +11,7 @@ module.exports = {
   },
   production: {
     client: 'pg',
-    connection: process.env.DB_URL,
+    connection: DB_URL,
     migrations: {
       tableName: 'knex_migrations',
       directory: './db/migrations',

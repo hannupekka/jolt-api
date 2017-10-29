@@ -17,7 +17,7 @@ exports.up = async knex => {
 
   await knex.schema.createTable('jolt_user', table => {
     table
-      .bigIncrements('jold_user_id')
+      .bigIncrements('jolt_user_id')
       .primary()
       .index();
     table.integer('jolt_id').notNullable();

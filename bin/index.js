@@ -1,3 +1,4 @@
+require('../utils/env')();
 const enableDestroy = require('server-destroy');
 const createApp = require('./app');
 const logger = require('../utils/logger');

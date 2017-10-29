@@ -2,10 +2,23 @@ const Joi = require('joi');
 const _ = require('lodash');
 
 // Validation schemas.
-const common = {};
+const common = {
+  user: Joi.string()
+    .length(4)
+    .required()
+    .error(() => ({ message: 'Invalid user' })),
+};
 
 const schemas = {
   common,
+  jolt: Joi.object({
+    title: Joi.string().required(),
+    description: Joi.string(),
+    givenTo: Joi.array()
+      .items(common.user.error(e => ({ message: `givenTo: ${e}` })))
+      .min(1)
+      .required(),
+  }),
 };
 
 /**

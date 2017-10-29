@@ -1,7 +1,7 @@
 const _ = require('lodash');
 const axios = require('axios');
 
-const { FUM_API_URL } = process.env;
+const { FUM_API_URL } = require('../config');
 
 const pick = user =>
   _.pick(user, ['first_name', 'last_name', 'username', 'email']);
