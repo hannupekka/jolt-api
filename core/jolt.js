@@ -6,6 +6,7 @@ const getJolts = async () => {
   const jolts = await db('jolt')
     .leftJoin('jolt_user', 'jolt.jolt_id', 'jolt_user.jolt_id')
     .select(['jolt.*', db.raw('ARRAY_AGG(jolt_user.user) as given_to')])
+    .orderBy('jolt.created_at', 'desc')
     .groupBy('jolt.jolt_id');
 
   return jolts.map(joltRowToObject);

@@ -17,15 +17,11 @@ function createRouter() {
   // Routes.
 
   // Users.
-  router.get('/user', userHttp.getUser);
-  // router.get('/user/:id', userHttp.getUserJolts);
-  router.get('/users', userHttp.getUsers);
+  router.get('/user', userHttp.getUsers);
 
-  // Jolts
+  // Jolts.
   router.post('/jolt', joltHttp.giveJolt);
   router.get('/jolt', joltHttp.getJolts);
-  // router.get('/jolt/:id', joltHttp.getJolt); // Jolts have one-to-many relation with users.
-  // router.patch('/jolt/:id', joltHttp.editJolt);
 
   return router;
 }

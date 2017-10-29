@@ -7,6 +7,10 @@ const common = {
     .length(4)
     .required()
     .error(() => ({ message: 'Invalid user' })),
+  id: Joi.number()
+    .integer()
+    .min(1)
+    .required(),
 };
 
 const schemas = {
