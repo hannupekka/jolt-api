@@ -1,10 +1,13 @@
 {
-  "name": "jolt3000-api",
+  "name": "jolt-api",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon bin/index.js",
-    "start": "node bin/index.js"
+    "start": "node bin/index.js",
+    "knex": "knex",
+    "knex:up": "knex migrate:latest",
+    "knex:down": "knex migrate:rollback"
   },
   "license": "MIT",
   "dependencies": {
@@ -17,7 +20,9 @@
     "express-winston": "^2.4.0",
     "helmet": "^3.9.0",
     "joi": "^13.0.1",
+    "knex": "^0.13.0",
     "lodash": "^4.17.4",
+    "pg": "^7.3.0",
     "server-destroy": "^1.0.1",
     "winston": "^2.4.0"
   },
